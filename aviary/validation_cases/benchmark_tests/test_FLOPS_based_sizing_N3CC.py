@@ -44,12 +44,12 @@ def run_trajectory(sim=True):
         driver.options["optimizer"] = "SNOPT"
         # driver.declare_coloring()  # currently disabled pending resolve of issue 2507
         if driver.options["optimizer"] == "SNOPT":
-            driver.opt_settings["Major iterations limit"] = 45
+            driver.opt_settings["Major iterations limit"] = 450
             driver.opt_settings["Major optimality tolerance"] = 1e-4
             driver.opt_settings["Major feasibility tolerance"] = 1e-6
             driver.opt_settings["iSumm"] = 6
         elif driver.options["optimizer"] == "IPOPT":
-            driver.opt_settings["max_iter"] = 100
+            driver.opt_settings["max_iter"] = 1000
             driver.opt_settings["tol"] = 1e-3
             driver.opt_settings['print_level'] = 4
 
@@ -58,7 +58,7 @@ def run_trajectory(sim=True):
         opt_settings = prob.driver.opt_settings
 
         driver.options['optimizer'] = 'SLSQP'
-        opt_settings['maxiter'] = 100
+        opt_settings['maxiter'] = 1000
         opt_settings['ftol'] = 5.0e-3
         opt_settings['eps'] = 1e-2
 

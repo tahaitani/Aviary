@@ -1564,7 +1564,7 @@ class AviaryProblem(om.Problem):
             for source, target in connect_map.items():
                 connect_with_common_params(self, source, target)
 
-    def add_driver(self, optimizer=None, use_coloring=None, max_iter=50, verbosity=Verbosity.BRIEF):
+    def add_driver(self, optimizer=None, use_coloring=None, max_iter=5000000, verbosity=Verbosity.BRIEF):
         """
         Add an optimization driver to the Aviary problem.
 
@@ -1702,7 +1702,7 @@ class AviaryProblem(om.Problem):
             optimize_mass = self.pre_mission_info.get('optimize_mass')
             if optimize_mass:
                 self.model.add_design_var(Mission.Design.GROSS_MASS, units='lbm',
-                                          lower=100.e2, upper=900.e3, ref=135.e3)
+                                          lower=100.e2, upper=900.e4, ref=135.e3)
 
         elif self.mission_method is TWO_DEGREES_OF_FREEDOM:
             if self.analysis_scheme is AnalysisScheme.COLLOCATION:
