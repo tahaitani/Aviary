@@ -1,6 +1,7 @@
 import argparse
 import os
 import sys
+
 import aviary
 from aviary.interface.methods_for_level1 import _exec_level1, _setup_level1_parser
 from aviary.utils.fortran_to_aviary import _exec_F2A, _setup_F2A_parser
@@ -11,6 +12,7 @@ from aviary.visualization.dashboard import _dashboard_setup_parser, _dashboard_c
 from aviary.interface.graphical_input import _exec_flight_profile, _setup_flight_profile_parser
 from aviary.interface.download_models import _exec_hangar, _setup_hangar_parser
 from aviary.interface.plot_drag_polar import _exec_plot_drag_polar, _setup_plot_drag_polar_parser
+
 
 def _load_and_exec(script_name, user_args):
     """
@@ -57,7 +59,7 @@ _command_map = {
                            'Converts FLOPS- or GASP-formatted aero data files into Aviary csv format.'),
     'convert_prop_table': (_setup_PMC_parser, _exec_PMC,
                            'Converts GASP-formatted propeller map file into Aviary csv format.'),
-    'plot_drag_polar':(_setup_plot_drag_polar_parser, _exec_plot_drag_polar,'Plot a Drag Polar Graph using a provided polar data csv input'),                          
+    'plot_drag_polar':(_setup_plot_drag_polar_parser, _exec_plot_drag_polar,'Plot a Drag Polar Graph using a provided polar data csv input'),  
 }
 
 
